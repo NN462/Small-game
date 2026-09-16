@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7c9d9" />
+    <link rel="icon" href="data:," />
+    <title>云朵猫猫 · Cloud Cat</title>
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="game-canvas" aria-label="云朵猫猫游戏画面"></canvas>
+
+      <section id="hud" aria-live="polite">
+        <div class="hud-pill">
+          <span class="hud-label">星星</span>
+          <strong><span id="score-value">0</span>/<span id="target-value">12</span></strong>
+        </div>
+        <div class="hud-pill">
+          <span class="hud-label">高度</span>
+          <strong id="height-value">0m</strong>
+        </div>
+        <div id="status-line">弹到云朵上收集星星吧～</div>
+      </section>
+
+      <div id="title-card" class="overlay-card">
+        <div class="card-inner">
+          <h1>云朵猫猫</h1>
+          <p class="subtitle">Cloud Cat</p>
+          <p class="hint">用 <kbd>WASD</kbd> / 方向键移动<br />空格冲刺 · <b>右键拖动</b>旋转视角 · 滚轮缩放</p>
+          <button id="start-button" type="button">开始弹跳</button>
+        </div>
+      </div>
+
+      <div id="result-card" class="overlay-card hidden">
+        <div class="card-inner">
+          <h2 id="result-title">再试一次～</h2>
+          <p id="result-detail">收集了 0 颗星星</p>
+          <button id="retry-button" type="button">再来一局</button>
+        </div>
+      </div>
+
+      <div id="touch-controls" aria-hidden="true">
+        <div id="touch-stick">
+          <div id="touch-knob"></div>
+        </div>
+        <button id="dash-button" type="button">跳</button>
+      </div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

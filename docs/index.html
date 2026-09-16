@@ -6,8 +6,8 @@
     <meta name="theme-color" content="#f7c9d9" />
     <link rel="icon" href="data:," />
     <title>云朵猫猫 · Cloud Cat</title>
-    <script type="module" crossorigin src="./assets/index-DoVrLOJi.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-D-f_rr8h.css">
+    <script type="module" crossorigin src="./assets/index-ls7H0A54.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DOwM9-2a.css">
   </head>
   <body>
     <main id="app">
@@ -22,6 +22,11 @@
           <span class="hud-label">高度</span>
           <strong id="height-value">0m</strong>
         </div>
+        <div class="hud-pill online-pill hidden" id="online-pill">
+          <span class="hud-label">房间</span>
+          <strong id="room-code">—</strong>
+          <span class="hud-label" id="online-count">1/4 人</span>
+        </div>
         <div id="status-line">弹到云朵上收集星星吧～</div>
       </section>
 
@@ -30,7 +35,33 @@
           <h1>云朵猫猫</h1>
           <p class="subtitle">Cloud Cat</p>
           <p class="hint">用 <kbd>WASD</kbd> / 方向键移动<br />空格冲刺 · <b>右键拖动</b>旋转视角 · 滚轮缩放</p>
-          <button id="start-button" type="button">开始弹跳</button>
+          <button id="start-button" type="button">单机开始</button>
+
+          <div class="online-box">
+            <p class="online-title">好友联机（2–4人）</p>
+            <label class="field">
+              <span>昵称</span>
+              <input id="player-name" type="text" maxlength="12" placeholder="猫咪" />
+            </label>
+            <div class="online-actions">
+              <button id="create-room-button" type="button" class="secondary">创建房间</button>
+              <div class="join-row">
+                <input id="room-input" type="text" maxlength="5" placeholder="房间码" />
+                <button id="join-room-button" type="button" class="secondary">加入</button>
+              </div>
+            </div>
+            <p id="online-status" class="online-status">未连接服务器</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="room-card" class="overlay-card hidden">
+        <div class="card-inner">
+          <h2>房间 <span id="room-card-code">—</span></h2>
+          <p id="room-card-players" class="hint">等待好友加入…</p>
+          <p class="hint small">把房间码发给朋友，最多 4 只猫一起爬云</p>
+          <button id="room-start-button" type="button">开始弹跳</button>
+          <button id="room-leave-button" type="button" class="secondary">离开房间</button>
         </div>
       </div>
 
@@ -39,6 +70,7 @@
           <h2 id="result-title">再试一次～</h2>
           <p id="result-detail">收集了 0 颗星星</p>
           <button id="retry-button" type="button">再来一局</button>
+          <button id="back-room-button" type="button" class="secondary hidden">回房间</button>
         </div>
       </div>
 
